@@ -1,0 +1,30 @@
+{
+  "name": "events-api",
+  "version": "1.0.0",
+  "description": "A simple API events",
+  "main": "index.js",
+  "scripts": {
+    "start": "NODE_ENV=production node index",
+    "debug": "NODE_ENV=production DEBUG=api-events:* node index",
+    "dev": "NODE_ENV=development DEBUG=api-events:* nodemon index",
+    "test": "mocha --exit"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hecto932/events-api.git"
+  },
+  "author": "Hector Flores <hecto932@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/hecto932/events-api/issues"
+  },
+  "homepage": "https://github.com/hecto932/events-api#readme",
+  "dependencies": {
+    "debug": "^4.1.1",
+    "express": "^4.16.4"
+  },
+  "devDependencies": {
+    "mocha": "^6.0.2",
+    "nodemon": "^1.18.10"
+  }
+}
