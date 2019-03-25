@@ -1,4 +1,4 @@
-[
+const events = [
   {
     "uuid": "2b6a258b-c931-4a7b-8db4-c35361f0e9ce",
     "name": "bicornuous",
@@ -90000,3 +90000,5 @@
     "datetime": 1550533988
   }
 ]
+
+module.exports = events;
