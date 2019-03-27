@@ -9,8 +9,8 @@ const port = process.env.PORT || 3000;
 const app = express();
 
 // routes
-app.use('/events', apiEvents);
-app.use('/reporters', apiReporters);
+apiEvents(app);
+apiReporters(app);
 app.use('/types', apiTypes);
 
 const server = app.listen(port, () => {
