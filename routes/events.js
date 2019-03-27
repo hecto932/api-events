@@ -30,7 +30,7 @@ function eventsApi(app) {
       const opts = { fields };
       const parser = new Parser(opts);
       const csv = parser.parse(events);
-      res.setHeader('Content-disposition', 'attachment; filename=testing.csv');
+      res.setHeader('Content-disposition', 'attachment; filename=events.csv');
       res.set('Content-Type', 'text/csv');
       return res.status(200).send(csv);
     }

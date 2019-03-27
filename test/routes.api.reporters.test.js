@@ -22,5 +22,9 @@ describe('routes - reporters', function () {
     it('should respond with content json', function (done) {
       request.get('/reporters').expect('Content-Type', /json/, done);
     })
+
+    it('should respond with not error', function (done) {
+      
+    })
   });
 })
