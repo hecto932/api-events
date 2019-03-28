@@ -38,6 +38,7 @@ describe('routes - events', function () {
       request.get('/events').end((err, res) => {
         assert.deepEqual(res.body, {
           error: false,
+          pageNumber: null,
           numberEntries: eventsMock.length,
           results: eventsMock
         });
@@ -50,6 +51,7 @@ describe('routes - events', function () {
         const eventResult = getByUuid(eventUuid);
         assert.deepEqual(res.body, {
           error: false,
+          pageNumber: null,
           numberEntries: eventResult.length,
           results: eventResult
         })

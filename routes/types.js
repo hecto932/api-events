@@ -2,38 +2,41 @@ const debug = require('debug')('api-events:types-router');
 const express = require('express');
 const EventService = require('../services/events');
 
-const router = express.Router();
+function typesApi(app) {
+  const router = express.Router();
+  app.use('/types', router);
 
-const eventService = new EventService();
+  const eventService = new EventService();
 
 
-router.get('/', function (req, res ,next) {
-  debug (`A request has come to /types`);
-  const { query } = req;
+  router.get('/', function (req, res, next) {
+    debug(`A request has come to /types`);
+    const { query } = req;
 
-  let types = null;
-  if (query && query.type) {
-    types = eventService.getEventsByType(query.type);
-  } else {
-    types = eventService.getEventsType();
-  }
+    let types = null;
+    if (query && query.type) {
+      types = eventService.getEventsByType(query.type);
+    } else {
+      types = eventService.getEventsType();
+    }
 
-  return res.status(200).json({
-    error: false,
-    numberEntries: types.length,
-    results: types
+    return res.status(200).json({
+      error: false,
+      numberEntries: types.length,
+      results: types
+    });
   });
-});
 
-router.get('/events', function (req, res, next) {
-  debug(`A request has come to /types/events`);
+  router.get('/events', function (req, res, next) {
+    debug(`A request has come to /types/events`);
 
-  const event = eventService.getEventsByType();
+    const event = eventService.getEventsByType();
 
-  return res.status(200).json({
-    error: false,
-    results: event
+    return res.status(200).json({
+      error: false,
+      results: event
+    });
   });
-});
+}
 
-module.exports = router;
+module.exports = typesApi;

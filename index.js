@@ -11,7 +11,7 @@ const app = express();
 // routes
 apiEvents(app);
 apiReporters(app);
-app.use('/types', apiTypes);
+apiTypes(app);
 
 const server = app.listen(port, () => {
   debug(`Server listening on http://localhost:${server.address().port}`);
