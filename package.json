@@ -21,6 +21,7 @@
   "homepage": "https://github.com/hecto932/events-api#readme",
   "dependencies": {
     "debug": "^4.1.1",
+    "dotenv": "^7.0.0",
     "express": "^4.16.4",
     "js2xmlparser": "^4.0.0",
     "json2csv": "^4.4.1"
