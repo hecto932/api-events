@@ -13,6 +13,16 @@ apiEvents(app);
 apiReporters(app);
 apiTypes(app);
 
+// errorHandler
+app.use(function (err, req, res, next) {
+  debug(err);
+  return res.status(500).json({
+    error: true,
+    message: err.message,
+    stack: err.stack
+  });
+});
+
 const server = app.listen(port, () => {
   debug(`Server listening on http://localhost:${server.address().port}`);
 })
