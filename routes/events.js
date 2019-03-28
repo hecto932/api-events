@@ -15,6 +15,7 @@ function eventsApi(app) {
     debug(`A request has come to /events`);
     const { query } = req;
 
+    // EVENTS
     let events = eventService.get(query);
 
     // SORT BY DATE ASC AND DESC
@@ -35,6 +36,13 @@ function eventsApi(app) {
         }
         return 0;
       });
+    }
+
+    // PAGE
+    if (query && query.page && query.limit) {
+      let page_number = parseInt(query.page);
+      let page_limit = parseInt(query.limit);
+      events = events.slice((page_number - 1) * page_limit, (page_number + 1) * page_limit);
     }
 
     // LIMIT RESULTS
