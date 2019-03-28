@@ -14,12 +14,20 @@ A simple API events.
 5. To run the test make `npm t`.
 6. Enjoy.
 
+## Use dockerization
+
+1. `docker build -t <your username>/api-events .` Build the image.
+2. `docker run -p 49160:3000 -d <your username>/node-web-app` run the image.
+3. `docker exec -it <container id> /bin/bash` to enter on the container shell.
+4. `docker ps` to see all the containers running.
+
 ## Endpoints
 
 1. `GET /events`: Get all the events from the data.
     - `?format=<stringValue>`: Using this querystring parameter you can return the data on XML, JSON, or CSV.
     - `?limit=<intValue>`: Using this you can limit the response data.
     - `?sortByDate=<stringValue>`: With his you can sort the response by date in `DESC` or `ASC`.
+    - `?page=<intValue>&limit=<intvalue>`: with this you can paginate the result.
 2. `GET /events/:uuid`: return all the data from an specific event.
 3. `GET /reporters`: return all reporters, the number of events reported and a link to fetch all events.
 4. `GET /reporters/events`: return all the events from an specific reporter.
