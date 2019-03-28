@@ -24,7 +24,10 @@ describe('routes - reporters', function () {
     })
 
     it('should respond with not error', function (done) {
-      
+      request.get('/reporters').end((err, res) => {
+        assert.equal(err, null);
+      });
+      done();
     })
   });
 })
